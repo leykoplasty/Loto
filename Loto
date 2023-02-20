@@ -72,17 +72,21 @@ while True:
     print('2. игра ПК против ПК')
     print('3. игра Игрок против Игрока')
     print('4. ВЫход')
-
+#во время игры с каждой иттерацией в карточку добавлялось еще три ряда, я поправиланемного код. Добавила вызов функции cards непосредственно после начала, чтобы мы взаимодействовали только с ней.
     num = input('Введите номер:')
     if num == '1':
+        player = cards_player.cards()
+        print('                                       ')
+        comp_num2 = cards_comp.cards()
         while True:
-            if str(data) == '':
+        #тут data не верно была вызвана
+            if str(cards_player.data) == '':
                 break
-            cards_player.cards()
-            print(cards_player.cards_form('Игрок!'))
+            player = cards_player.cards_form('Игрок!')
             print('                                       ')
-            cards_comp.cards()
-            print(cards_comp.cards_form('Компьютер!'))
+            comp2 = cards_comp.cards_form('Компьютер!')
+            print(player)
+            print(comp2)
             x1 = random.randint(1, 90)
             print(x1)
             ans = input('Зачеркнуть(z)/продолжить(p)')
